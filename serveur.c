@@ -1,6 +1,10 @@
 #include "stream.h"
 
 int main (){
+/**************************************************************** Bloc de déclaration variables**********************************************************/
+	//TODO déclarer un structure joueur et initialiser un tableau de joueur.
+
+	//tableau des questions
 	T_Tab quizz = {"Question 1",
                    "Question 2",
                    "Question 3",
@@ -28,11 +32,12 @@ int main (){
 	/* addr */
 	struct sockaddr_in svc;
 	struct sockaddr_in clt;
-
+/****************************************************************************************************************************************************************/
 
 	CHECK(se = socket(AF_INET, SOCK_STREAM, 0), "0: Probleme Creation de la Socket d'ecoute");
 
-	/* Adressage de la Socket */
+
+/***************************************************************** Adressage de la Socket se*********************************************************************/
 	svc.sin_family = AF_INET;
 	svc.sin_port =	htons(PORT_SRV);
 	inet_aton(IP_SRV, &(svc.sin_addr));
@@ -40,10 +45,13 @@ int main (){
 	
 	CHECK(bind(se, (struct sockaddr *)&svc, sizeof(svc)), "1: Probleme Addressage de la Socket d'ecoute");
 
+/***************************************************************************************************************************************************************/
+
 	/* Un serveur multiple doit indiquer le nombre de clients mis en attente de connexion par l'appel */
 	CHECK(listen(se,10), "Erreur listen");
 	
-	/* Attente reception message */
+
+/***************************************************************** Boucle reception serveur *******************************************************************/
 	while (1)
 	{
 		lenClt = sizeof(clt); // On peut pas mettre sizeof dans accept
@@ -57,6 +65,7 @@ int main (){
 		if(pid==0){
 			close(se);			
 			//traitement éxecuter par serveur fils
+			//TODO identifier requete => switch case exemple : Stockage info. 
 			close(sd);
 			exit(0);
 		}
