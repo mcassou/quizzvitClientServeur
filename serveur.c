@@ -1,7 +1,6 @@
 #include "stream.h"
 
-int main ()
-{
+int main (){
 	T_Tab quizz = {"Question 1",
                    "Question 2",
                    "Question 3",
@@ -42,7 +41,7 @@ int main ()
 	CHECK(bind(se, (struct sockaddr *)&svc, sizeof(svc)), "1: Probleme Addressage de la Socket d'ecoute");
 
 	/* Un serveur multiple doit indiquer le nombre de clients mis en attente de connexion par l'appel */
-	CHECK(listen(se,5), "Erreur listen");
+	CHECK(listen(se,10), "Erreur listen");
 	
 	/* Attente reception message */
 	while (1)
@@ -50,13 +49,21 @@ int main ()
 		lenClt = sizeof(clt); // On peut pas mettre sizeof dans accept
 		
 		/* Acceptation d'une requête de connexion par le serveur */
-		CHECK(sd = accept(se, (struct sockaddr *)&clt, &lenClt), "Requete non acceptee par le serveur");
-
-		dialogueClt(sd, tableau, sizeof(tableau)/MAX_BUFF);
-		close(sd);
+		CHECK((sd = accept(se, (struct sockaddr *)&clt, &lenClt)), "Requete non acceptee par le serveur");
+		
+		//clonage processus
+		int pid;
+		//CHECK(pid=fork(),"Fork failed");
+		if(pid==0){
+			close(se);			
+			//traitement éxecuter par serveur fils
+			close(sd);
+			exit(0);
+		}
 		
 	}
 	
 	close(se);
 	exit (0);
 }
+
