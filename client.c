@@ -1,5 +1,18 @@
 #include "stream.h"
 
+
+
+void traiterRep(int sa, char *req, int *taille){
+
+}
+
+
+
+int selectionMode(){
+	return 0;
+}
+
+
 void entrerJeuClient(){
 
 }
@@ -28,9 +41,12 @@ int main (void){
 
 	/* Demande de connexion par le client */
 	CHECK(etat = connect(sa, (struct sockaddr *)&svc, sizeof (svc)), "Erreur de la demande de connexion");
+	printf("connection établie \n");
+	//TODO Démarrage de la socket d'écoute serveur client	
+
 
 	/* Création du thread du client */
-	CHECK(thread_clt = pthread_create(...,NULL,...,...), "Erreur de creation du thread du client");
+	//CHECK(thread_clt = pthread_create(...,NULL,...,...), "Erreur de creation du thread du client");
 
 	close (sa);
 	return 0;
