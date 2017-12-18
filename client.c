@@ -1,16 +1,55 @@
 #include "stream.h"
 
 int mode;
+char pseudo[10];
 
+/**********************************************************************************************************/
+/* elevève le retour chariot dune chaîne
+
+*/
+char *trimwhitespace(char *str)
+{
+  char *end;
+
+  // Trim leading space
+  while(isspace((unsigned char)*str)) str++;
+
+  if(*str == 0)  // All spaces?
+    return str;
+
+  // Trim trailing space
+  end = str + strlen(str) - 1;
+  while(end > str && isspace((unsigned char)*end)) end--;
+
+  // Write new null terminator
+  *(end+1) = 0;
+
+  return str;
+}
+/*********************************************************************************************************/
 
 void traiterRep(int sa, char *req, int *taille){
 
 }
 
+void selectionPseudo(){
+	printf(">Veuillez selectionner un pseudo :\n");
+	fgets(pseudo,9,stdin);
+	trimwhitespace(pseudo);
+	printf("bonjour  %s !\n", pseudo);
+	//fflush(stdout);
+}
 
-
-int selectionMode(){
-	return 0;
+void selectionMode(){
+	printf("\n>Veuillez selectionner un mode de jeu :\n");
+	printf("	> Joueur : (Tapez 1)\n");
+	printf("	> Spectateur : (Tapez 2)\n");
+	printf("\n\nVotre choix :\n"); scanf("%i", &mode);	
+	if(mode > 2 || mode < 1){
+		printf("\nChoix incorrecte, veuillez choisir un entrer un nombre entre 1 et 2\n"); scanf("%d", &mode);
+	}
+	printf("mode selectionné : %d\n",mode);
+	//fflush(stdout);
 }
 
 
@@ -24,13 +63,7 @@ void acceuil(){
 printf("********************************************************************************\n");
 printf("*				BIENVENUE A QUIIIIIZZ'VIT !		       *\n");
 printf("********************************************************************************\n");
-printf(">Veuillez selectionner un mode de jeu :\n");
-printf("	> Joueur : (Tapez 1)\n");
-printf("	> Spectateur : (Tapez 2)\n");
-printf("\n\nVotre choix :\n"); scanf("%i", &mode);
-
-printf("mode selectionné : %i\n",mode);
-
+//system("clear");
 }
 
 
@@ -58,8 +91,11 @@ int main (void){
 
 	/* Demande de connexion par le client */
 	CHECK(etat = connect(sa, (struct sockaddr *)&svc, sizeof (svc)), "Erreur de la demande de connexion");
+	
 	printf("#connection établie \n");
 	acceuil();
+	selectionPseudo();
+	selectionMode();
 	//TODO Démarrage de la socket d'écoute serveur client	
 
 

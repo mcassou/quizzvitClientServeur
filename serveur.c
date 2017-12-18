@@ -66,10 +66,11 @@ int main (){
 			close(se);			
 			//traitement éxecuter par serveur fils
 			//TODO identifier requete => switch case exemple : Stockage info. 
-			//printf("client connecté \n");
+			printf("client connecté \n");
 			close(sd);
 			exit(0);
 		}
+
 	close(sd);
 		
 	}
