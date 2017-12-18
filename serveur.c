@@ -77,3 +77,5 @@ int main (){
 	exit (0);
 }
 
+// gcc serveur.c -o serveur.exe
+// ./serveur.exe
