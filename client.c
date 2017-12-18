@@ -1,5 +1,7 @@
 #include "stream.h"
 
+int mode;
+
 void traiterRep(int sa, char *req, int *taille){
 
 }
@@ -182,6 +184,19 @@ char reponses(int r){
 	return reponse;
 }
 
+void acceuil(){
+printf("********************************************************************************\n");
+printf("*				BIENVENUE A QUIIIIIZZ'VIT !		       *\n");
+printf("********************************************************************************\n");
+printf(">Veuillez selectionner un mode de jeu :\n");
+printf("	> Joueur : (Tapez 1)\n");
+printf("	> Spectateur : (Tapez 2)\n");
+printf("\n\nVotre choix :\n"); scanf("%i", &mode);
+
+printf("mode selectionné : %i\n",mode);
+
+}
+
 int main (void){
 
 	/* Socket de flux */
@@ -208,7 +223,8 @@ int main (void){
 
 	/* Demande de connexion par le client */
 	CHECK(etat = connect(sa, (struct sockaddr *)&svc, sizeof (svc)), "Erreur de la demande de connexion");
-	printf("connection établie \n");
+	printf("#connection établie \n");
+	acceuil();
 	//TODO Démarrage de la socket d'écoute serveur client
 
 	/* Création du thread du client */
