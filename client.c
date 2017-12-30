@@ -1,12 +1,14 @@
 #include "stream.h"
 
-int mode;
-char pseudo[10];
 
 
-/**********************************************************************************************************/
-/* elevève le retour chariot dune chaîne
 
+
+
+
+/** 
+* \fn 
+* \brief elevève le retour chariot dune chaîne
 */
 char *trimwhitespace(char *str)
 {
@@ -36,14 +38,17 @@ void traiterRep(int sa, char *req, int *taille){
 }
 
 void selectionPseudo(){
-	printf(">Veuillez selectionner un pseudo :\n");
+	char pseudo[10];
+	printf(">Veuillez selectionner un pseudo [9 charactères max]:\n");
 	fgets(pseudo,9,stdin);
 	trimwhitespace(pseudo);
-	printf("bonjour  %s !\n", pseudo);
+	strncpy(joueur.pseudo,pseudo,9);
+	printf("bonjour  %s !\n", joueur.pseudo);
 	//fflush(stdout);
 }
 
 void selectionMode(){
+	int mode;
 	printf("\n>Veuillez selectionner un mode de jeu :\n");
 	printf("	> Joueur : (Tapez 1)\n");
 	printf("	> Spectateur : (Tapez 2)\n");
@@ -52,12 +57,16 @@ void selectionMode(){
 		printf("\nChoix incorrecte, veuillez choisir un entrer un nombre entre 1 et 2\n"); scanf("%d", &mode);
 	}
 	printf("mode selectionné : %d\n",mode);
+	joueur.mode = mode;
 	//fflush(stdout);
+}
+
 
 void entrerJeuClient(){
 
 }
 
+/*
 void questions(int q){
 	switch(q) {
 		case 1:
@@ -227,7 +236,7 @@ char reponses(int r){
 	}
 	return reponse;
 }
-
+*/
 void acceuil(){
 printf("********************************************************************************\n");
 printf("*				BIENVENUE A QUIIIIIZZ'VIT !		       *\n");
@@ -236,9 +245,10 @@ printf("************************************************************************
 }
 
 int main (void){
-
+	Joueur joueur;// = {"",0,0};
 	/* Socket de flux */
 	int sa;
+	int se_clt;
 
 	int etat;
 
@@ -263,17 +273,14 @@ int main (void){
 	CHECK(etat = connect(sa, (struct sockaddr *)&svc, sizeof (svc)), "Erreur de la demande de connexion");
 	
 	printf("#connection établie \n");
+	
 	acceuil();
-
 	selectionPseudo();
 	selectionMode();
 	//TODO Démarrage de la socket d'écoute serveur client	
-
-
-
 	/* Création du thread du client */
 	//CHECK(thread_clt = pthread_create(...,NULL,...,...), "Erreur de creation du thread du client");
-
+	/*
 	for(i=1, i<=20, i++){
 		questions(i);
 		reponse = reponses(i);
@@ -285,7 +292,7 @@ int main (void){
 			printf("\nMauvaise reponse !\n");
 		}
 	}
-
+	*/
 	close (sa);
 	return 0;
 }

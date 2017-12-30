@@ -22,3 +22,11 @@
 
 #define MAX_BUFF 1024
 typedef char T_Tab[][MAX_BUFF];
+
+
+typedef struct 
+{
+	char pseudo[10];
+	int mode;
+	int se;
+} Joueur;

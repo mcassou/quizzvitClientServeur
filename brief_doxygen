@@ -1,0 +1,27 @@
+Comment réaliser un entête doxygen : 
+
+1) installer doxygne :
+	> sudo apt-get install doxygen
+	> sudo apt-get install doxygen-gui
+	> sudo apt-get install doxygne-doc
+
+2) Crréer un bloc de commentaire :
+	exemple à placer au dessus d'une fonction
+
+	/** (***********************************************************************)
+	 * \fn (nom de fonction)
+	 * \file (fichier concerné)
+	 * \brief (résumé rapide)
+	 * \return (ce qui est renvoyé)
+	 * \param[out] (...)
+ 	 * \param[in] (...)
+	 * \author (...)
+	 * 
+	 * \date 30 Décembre 2017
+	 *
+	 * \version 1.0
+	(**************************************************************************) */
+
+3) générer la doc : 
+	> doxywizard
+	/!\ décocher "diagrame"

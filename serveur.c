@@ -1,5 +1,8 @@
 #include "stream.h"
 
+//tableau de joueur
+Joueur joueur[40];
+
 int main (){
 /**************************************************************** Bloc de déclaration variables**********************************************************/
 	//TODO déclarer un structure joueur et initialiser un tableau de joueur.
