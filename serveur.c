@@ -3,6 +3,14 @@
 //tableau de joueur
 Joueur joueur[40];
 
+void derouter(int sig){
+	int status;
+	int pid=wait(&status);
+	printf("le processus de service [PID=%d], vient de se terminer avec le status %d\n",pid,status);
+}
+
+
+
 int main (){
 /**************************************************************** Bloc de déclaration variables**********************************************************/
 	//TODO déclarer un structure joueur et initialiser un tableau de joueur.
@@ -37,7 +45,8 @@ int main (){
 	struct sockaddr_in clt;
 /****************************************************************************************************************************************************************/
 
-	CHECK(se = socket(AF_INET, SOCK_STREAM, 0), "0: Probleme Creation de la Socket d'ecoute");
+/****************************************************************************************************************************************************************/
+	CHECK(se = socket(AF_INET, SOCK_STREAM, 0), "[SERVEUR] Probleme Creation de la Socket d'ecoute");
 
 
 /***************************************************************** Adressage de la Socket se*********************************************************************/
@@ -46,41 +55,52 @@ int main (){
 	inet_aton(IP_SRV, &(svc.sin_addr));
 	memset(&svc.sin_zero, 0, 8);
 	
-	CHECK(bind(se, (struct sockaddr *)&svc, sizeof(svc)), "1: Probleme Addressage de la Socket d'ecoute");
+	CHECK(bind(se, (struct sockaddr *)&svc, sizeof(svc)), "[SERVEUR] Probleme Addressage de la Socket d'ecoute");
 
 /***************************************************************************************************************************************************************/
 
 	/* Un serveur multiple doit indiquer le nombre de clients mis en attente de connexion par l'appel */
-	CHECK(listen(se,10), "Erreur listen");
+	CHECK(listen(se,20), "Erreur listen");
 	
+
+
+	struct sigaction newAct;
+	newAct.sa_handler = derouter;
+	newAct.sa_flags = SA_RESTART;
+	CHECK(sigemptyset(&newAct.sa_mask),"...............");
+	CHECK(sigaction(SIGCHLD,&newAct,NULL),"..............");
 
 /***************************************************************** Boucle reception serveur *******************************************************************/
-	while (1)
-	{
-		lenClt = sizeof(clt); // On peut pas mettre sizeof dans accept
-		
-		/* Acceptation d'une requête de connexion par le serveur */
-		CHECK((sd = accept(se, (struct sockaddr *)&clt, &lenClt)), "Requete non acceptee par le serveur");
-		
-		//clonage processus
-		int pid;
-		//CHECK(pid=fork(),"Fork failed");
-		if(pid==0){
-			close(se);			
-			//traitement éxecuter par serveur fils
-			//TODO identifier requete => switch case exemple : Stockage info. 
-			printf("client connecté \n");
-			close(sd);
-			exit(0);
-		}
-
-	close(sd);
-		
-	}
 	
-	close(se);
-	return 0;
+	//TODO identifier requete => switch case exemple : Stockage info. 
+	// boucle de réception
+	while ( 1 )
+		  { 
+		    int sd;
+		    struct sockaddr_in ac;
+		    socklen_t taille = sizeof ( ac );
+		    CHECK( ( sd = accept ( se, ( struct sockaddr * ) &ac, &taille ) ), "[SERVEUR] Requete non acceptee par le serveur" );
+		   
+		    //clonage processus
+		    int pid;
+		    CHECK(pid=fork(),"Fork failed");
+		    if(pid == 0 ){
+				close(se);
+				//boucle de test
+				while(1){
+					system("clear");
+					printf("test...pid : %i\n",getpid());
+					sleep(4);
+				} 
+				close(sd); 
+				exit(0);
+		    }
+		    close ( sd ); 
+		}
+		  close ( se );
+	return(0);
 }
+
 
 // gcc serveur.c -o serveur.exe
 // ./serveur.exe
