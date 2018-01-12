@@ -53,10 +53,42 @@ char *trimwhitespace(char *str)
  *
  * \version 1.0
 ************************************************************************** */
-void dialogueClt(int sa, char *req, int *taille){
-
-
+void traiterRep(int sa, char *req, int *taille){
+	int repId;
+	char rep[MAX_BUFF];
+	CHECK(write(sa,req,strlen(req)+1),"[Client] Echec envoi requête");
+	CHECK(read(sa,rep,MAX_BUFF),"[Client] Echec lecutre réponse");
+	sscanf(rep,"%i",&repId);
+	switch ( repId )
+		      {
+		default : exit(0);
+		break;
+	}
 }
+
+/** ***********************************************************************
+ * \fn testProtoSrv
+ * \file client.c
+ * \brief déroulé du ptotocole applicatif entre un client et le serveur d'enregistrement
+ * \return void
+ * \param[out]
+ * \param[in] 
+ * \author 
+ * 
+ * \date 30 Décembre 2017
+ *
+ * \version 1.0
+************************************************************************** */
+void testProtoSrv(int sa){
+	int N=0,i;
+	char req[MAX_BUFF];
+	//memset(req,MAX_BUFF,0);
+	//sprintf(req,"%i",100);
+	//traiterRep(sa,req,&N);
+	
+}
+
+
 
 /** ***********************************************************************
  * \fn 
@@ -153,11 +185,39 @@ printf("************************************************************************
 
 }
 
+
+/** ***********************************************************************
+ * \fn 
+ * \file client.c
+ * \brief 
+ * \return 
+ * \param[out]
+ * \param[in] 
+ * \author 
+ * 
+ * \date 12 Janvier 2018
+ *
+ * \version 1.0
+************************************************************************** */
 void * client(void *args){
 	printf("[thread Client]\n");
+	
 	pthread_exit(0);
 }
 
+/** ***********************************************************************
+ * \fn 
+ * \file client.c
+ * \brief 
+ * \return 
+ * \param[out]
+ * \param[in] 
+ * \author 
+ * 
+ * \date 12 Janvier 2018
+ *
+ * \version 1.0
+************************************************************************** */
 void * servP(void *args){
 	printf("[thread Serveur Partie]\n");
 	while(1){
@@ -223,13 +283,14 @@ int main (void){
 	selectionPseudo();
 	selectionMode();
 
-	/* Création du thread du client */
+	// Création du thread du client 
 	CHECK(pthread_create(&th_Client,NULL, client,NULL),"[client] echec création thread client"); //changer les paramètres
-	//TODO Démarrage de la socket d'écoute serveur client
+	//Démarrage de la socket d'écoute serveur client
 	CHECK(pthread_create(&th_SP,NULL, servP,NULL),"[client] echec création thread Serveur Partie client"); //changer les paramètres
 	
 	CHECK(pthread_join(th_SP,&res),"[client] echec fermeture th_sp");
 	CHECK(pthread_join(th_Client,&res),"[client] echec fermeture th_Client");
+
 	close (sa);
 	return 0;
 }
