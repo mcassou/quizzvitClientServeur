@@ -3,16 +3,38 @@
 //tableau de joueur
 Joueur joueur[40];
 
+
+void dialogueClt(int sd, T_Tab tableau, int taille){
+	char FIN=1;
+	int repId,index;
+	char rep[MAX_BUFF];
+	while(FIN){
+	//lire requete
+		CHECK(read(sd,rep,MAX_BUFF),"[SERVEUR] echec lecture requête");
+		sscanf(rep,"%i",&repId);
+		switch(repId){
+			case 0: printf ( "[SERVEUR] Fermeture appel \n" );
+			  FIN=!FIN;
+			break;
+	
+			default : printf("[SERVEUR] > Requète inconnu reçu\n");
+				FIN=!FIN;
+			break;		
+		}
+	}
+}
+
 void derouter(int sig){
 	int status;
 	int pid=wait(&status);
-	printf("le processus de service [PID=%d], vient de se terminer avec le status %d\n",pid,status);
+	printf("[SERVEUR - Derouter ]le processus de service [PID=%d], vient de se terminer avec le status %d\n",pid,status);
 }
 
 
 
 int main (){
 /**************************************************************** Bloc de déclaration variables**********************************************************/
+	int status;	
 	//TODO déclarer un structure joueur et initialiser un tableau de joueur.
 
 	//tableau des questions
@@ -62,8 +84,6 @@ int main (){
 	/* Un serveur multiple doit indiquer le nombre de clients mis en attente de connexion par l'appel */
 	CHECK(listen(se,20), "Erreur listen");
 	
-
-
 	struct sigaction newAct;
 	newAct.sa_handler = derouter;
 	newAct.sa_flags = SA_RESTART;
@@ -76,6 +96,7 @@ int main (){
 	// boucle de réception
 	while ( 1 )
 		  { 
+		    
 		    int sd;
 		    struct sockaddr_in ac;
 		    socklen_t taille = sizeof ( ac );
@@ -89,15 +110,16 @@ int main (){
 				//boucle de test
 				while(1){
 					system("clear");
-					printf("test...pid : %i\n",getpid());
-					sleep(4);
+					dialogueClt(sd,quizz,sizeof(quizz)/MAX_BUFF);
+					close(sd); 
+					exit(0);
 				} 
-				close(sd); 
-				exit(0);
 		    }
 		    close ( sd ); 
 		}
-		  close ( se );
+		close ( se );
+		
+		
 	return(0);
 }
 
