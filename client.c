@@ -1,15 +1,24 @@
 #include "stream.h"
 
+//Zone des variables
+Joueur joueur;
 
 
 
 
-
-
-/** 
-* \fn 
-* \brief elevève le retour chariot dune chaîne
-*/
+/** ***********************************************************************
+ * \fn trimwhitespace
+ * \file client.c
+ * \brief Supprime le retour chariot d'une chaine de charactère
+ * \return renvoie une chaine de caractère.
+ * \param[out] (...)
+ * \param[in] (...)
+ * \author extraite de StackOverflow
+ * 
+ * \date 30 Décembre 2017
+ *
+ * \version 1.0
+************************************************************************** */
 char *trimwhitespace(char *str)
 {
   char *end;
@@ -30,13 +39,38 @@ char *trimwhitespace(char *str)
 
   return str;
 }
-/*********************************************************************************************************/
 
-void traiterRep(int sa, char *req, int *taille){
+/** ***********************************************************************
+ * \fn 
+ * \file client.c
+ * \brief 
+ * \return 
+ * \param[out]
+ * \param[in] 
+ * \author 
+ * 
+ * \date 30 Décembre 2017
+ *
+ * \version 1.0
+************************************************************************** */
+void dialogueClt(int sa, char *req, int *taille){
 
 
 }
 
+/** ***********************************************************************
+ * \fn 
+ * \file client.c
+ * \brief 
+ * \return 
+ * \param[out]
+ * \param[in] 
+ * \author 
+ * 
+ * \date 30 Décembre 2017
+ *
+ * \version 1.0
+************************************************************************** */
 void selectionPseudo(){
 	char pseudo[10];
 	printf(">Veuillez selectionner un pseudo [9 charactères max]:\n");
@@ -44,242 +78,89 @@ void selectionPseudo(){
 	trimwhitespace(pseudo);
 	strncpy(joueur.pseudo,pseudo,9);
 	printf("bonjour  %s !\n", joueur.pseudo);
-	//fflush(stdout);
+	fflush(stdin);
 }
 
+/** ***********************************************************************
+ * \fn 
+ * \file client.c
+ * \brief 
+ * \return 
+ * \param[out]
+ * \param[in] 
+ * \author 
+ * 
+ * \date 30 Décembre 2017
+ *
+ * \version 1.0
+************************************************************************** */
 void selectionMode(){
-	int mode;
+	int mode,flag;
 	printf("\n>Veuillez selectionner un mode de jeu :\n");
 	printf("	> Joueur : (Tapez 1)\n");
 	printf("	> Spectateur : (Tapez 2)\n");
-	printf("\n\nVotre choix :\n"); scanf("%i", &mode);	
+	printf("\n\nVotre choix :\n"); scanf("%i", &mode);
+	while(!flag){	
 	if(mode > 2 || mode < 1){
 		printf("\nChoix incorrecte, veuillez choisir un entrer un nombre entre 1 et 2\n"); scanf("%d", &mode);
+		flag=0;
+	}
+	else flag=1;
 	}
 	printf("mode selectionné : %d\n",mode);
 	joueur.mode = mode;
 	//fflush(stdout);
 }
 
-
+/** ***********************************************************************
+ * \fn 
+ * \file client.c
+ * \brief 
+ * \return 
+ * \param[out]
+ * \param[in] 
+ * \author 
+ * 
+ * \date 30 Décembre 2017
+ *
+ * \version 1.0
+************************************************************************** */
 void entrerJeuClient(){
 
 }
 
-/*
-void questions(int q){
-	switch(q) {
-		case 1:
-			printf("\n");
-		break; 
 
-		case 2: 
-			printf("\n");
-		break; 
 
-		case 3: 
-			printf("\n");
-		break; 
 
-		case 4: 
-			printf("\n");
-		break; 
-
-		case 5: 
-			printf("\n");
-		break; 
-
-		case 6: 
-			printf("\n");
-		break; 
-
-		case 7: 
-			printf("\n");
-		break; 
-
-		case 8: 
-			printf("\n");
-		break; 
-
-		case 9: 
-			printf("\n");
-		break; 
-
-		case 10: 
-			printf("\n");
-		break;
-
-		case 11:
-			printf("\n");
-		break; 
-
-		case 12: 
-			printf("\n");
-		break; 
-
-		case 13: 
-			printf("\n");
-		break; 
-
-		case 14: 
-			printf("\n");
-		break; 
-
-		case 15: 
-			printf("\n");
-		break; 
-
-		case 16: 
-			printf("\n");
-		break; 
-
-		case 17: 
-			printf("\n");
-		break; 
-
-		case 18: 
-			printf("\n");
-		break; 
-
-		case 19: 
-			printf("\n");
-		break; 
-
-		case 20: 
-			printf("\n");
-		break;
-	} 
-}
-
-char reponses(int r){
-	char reponse[MAX_BUFF]="";
-	switch(r){
-		case 1:
-			return reponse = "";
-		break; 
-
-		case 2: 
-			return reponse = "";
-		break; 
-
-		case 3: 
-			return reponse = "";
-		break; 
-
-		case 4: 
-			return reponse = "";
-		break; 
-
-		case 5: 
-			return reponse = "";
-		break; 
-
-		case 6: 
-			return reponse = "";
-		break; 
-
-		case 7: 
-			return reponse = "";
-		break; 
-
-		case 8: 
-			return reponse = "";
-		break; 
-
-		case 9: 
-			return reponse = "";
-		break; 
-
-		case 10: 
-			return reponse = "";
-		break;
-
-		case 11:
-			return reponse = "";
-		break; 
-
-		case 12: 
-			return reponse = "";
-		break; 
-
-		case 13: 
-			return reponse = "";
-		break; 
-
-		case 14: 
-			return reponse = "";
-		break; 
-
-		case 15: 
-			return reponse = "";
-		break; 
-
-		case 16: 
-			return reponse = "";
-		break; 
-
-		case 17: 
-			return reponse = "";
-		break; 
-
-		case 18: 
-			return reponse = "";
-		break; 
-
-		case 19: 
-			return reponse = "";
-		break; 
-
-		case 20: 
-			return reponse = "";
-		break;
-	}
-	return reponse;
-}
-*/
+/** ***********************************************************************
+ * \fn 
+ * \file client.c
+ * \brief 
+ * \return 
+ * \param[out]
+ * \param[in] 
+ * \author 
+ * 
+ * \date 30 Décembre 2017
+ *
+ * \version 1.0
+************************************************************************** */
 void acceuil(){
+system("clear");
 printf("********************************************************************************\n");
 printf("*				BIENVENUE A QUIIIIIZZ'VIT !		       *\n");
 printf("********************************************************************************\n");
-//system("clear");
+
 }
 
-int main (void){
-	Joueur joueur;// = {"",0,0};
-	/* Socket de flux */
-	int sa;
-	int se_clt;
+void * client(void *args){
+	printf("[thread Client]\n");
+	pthread_exit(0);
+}
 
-	int etat;
-
-	char message[MAX_BUFF]="\n\n\tBienvenue dans QuizzVit !\n\n";
-	char reponse[MAX_BUFF]="";
-	int bonnesrepclt = 0;
-
-	/* addr */
-	struct sockaddr_in svc;
-
-	//int thread_clt = 0;
-
-	CHECK(sa = socket(AF_INET, SOCK_STREAM, 0), "0: Probleme Creation Socket de flux sa");
-
-	/* Adressage de la Socket */
-	svc.sin_family = AF_INET;
-	svc.sin_port =	htons (PORT_SRV);
-	svc.sin_addr.s_addr = inet_addr (IP_SRV);
-	memset (&svc.sin_zero, 0, 8);
-
-	/* Demande de connexion par le client */
-	CHECK(etat = connect(sa, (struct sockaddr *)&svc, sizeof (svc)), "Erreur de la demande de connexion");
-	
-	printf("#connection établie \n");
-	
-	acceuil();
-	selectionPseudo();
-	selectionMode();
-	//TODO Démarrage de la socket d'écoute serveur client	
-	/* Création du thread du client */
-	//CHECK(thread_clt = pthread_create(...,NULL,...,...), "Erreur de creation du thread du client");
+void * servP(void *args){
+	printf("[thread Serveur Partie]\n");
+	while(1){
 	/*
 	for(i=1, i<=20, i++){
 		questions(i);
@@ -293,9 +174,65 @@ int main (void){
 		}
 	}
 	*/
+	}
+	pthread_exit(0);
+}
+
+/** ***********************************************************************
+ * \fn 
+ * \file client.c
+ * \brief 
+ * \return 
+ * \param[out]
+ * \param[in] 
+ * \author 
+ * 
+ * \date 30 Décembre 2017
+ *
+ * \version 1.0
+************************************************************************** */
+int main (void){
+	Joueur joueur;// = {"",0,0};
+	/* Socket de flux */
+	int sa;
+	int se_clt;
+	int etat;
+	char message[MAX_BUFF]="\n\n\tBienvenue dans QuizzVit !\n\n";
+	char reponse[MAX_BUFF]="";
+	int bonnesrepclt = 0;
+
+	pthread_t th_SP, th_Client;
+	void * res;
+
+	/* addr */
+	struct sockaddr_in svc;
+
+	//int thread_clt = 0;
+	CHECK(sa = socket(AF_INET, SOCK_STREAM, 0), "0: Probleme Creation Socket de flux sa");
+
+	/* Adressage de la Socket */
+	svc.sin_family = AF_INET;
+	svc.sin_port =	htons (PORT_SRV);
+	svc.sin_addr.s_addr = inet_addr (IP_SRV);
+	memset (&svc.sin_zero, 0, 8);
+
+	/* Demande de connexion par le client */
+	CHECK(etat = connect(sa, (struct sockaddr *)&svc, sizeof (svc)), "Erreur de la demande de connexion");
+	printf("#connection établie \n");
+	acceuil();
+	selectionPseudo();
+	selectionMode();
+
+	/* Création du thread du client */
+	CHECK(pthread_create(&th_Client,NULL, client,NULL),"[client] echec création thread client"); //changer les paramètres
+	//TODO Démarrage de la socket d'écoute serveur client
+	CHECK(pthread_create(&th_SP,NULL, servP,NULL),"[client] echec création thread Serveur Partie client"); //changer les paramètres
+	
+	CHECK(pthread_join(th_SP,&res),"[client] echec fermeture th_sp");
+	CHECK(pthread_join(th_Client,&res),"[client] echec fermeture th_Client");
 	close (sa);
 	return 0;
 }
 
-// gcc client.c -o client.exe
+// gcc -pthread client.c -o client.exe
 // ./client.exe
