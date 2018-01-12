@@ -4,10 +4,14 @@
 #include <stdio.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <ctype.h>
 
 #include <pthread.h>
 
 #include <arpa/inet.h>
+#include <sys/wait.h>
+#include <signal.h>
+#include <netdb.h>
 
 /**
 *	/brief 
@@ -20,4 +24,13 @@
 #define IP_SRV "127.0.0.1"
 
 #define MAX_BUFF 1024
+
 typedef char T_Tab[][MAX_BUFF];
+
+
+typedef struct 
+{
+	char pseudo[10];
+	int mode;
+	int se;
+} Joueur;
