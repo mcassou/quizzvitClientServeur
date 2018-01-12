@@ -56,11 +56,17 @@ char *trimwhitespace(char *str)
 void traiterRep(int sa, char *req, int *taille){
 	int repId;
 	char rep[MAX_BUFF];
+	printf("[thread Client] -> traiterRep\n");
 	CHECK(write(sa,req,strlen(req)+1),"[Client] Echec envoi requête");
 	CHECK(read(sa,rep,MAX_BUFF),"[Client] Echec lecutre réponse");
 	sscanf(rep,"%i",&repId);
 	switch ( repId )
 		      {
+		case 100 :
+			sscanf(rep,"%i:%i",&repId,taille ); 
+			printf("taille =%i\n",*taille);
+		break;
+
 		default : exit(0);
 		break;
 	}
@@ -82,9 +88,12 @@ void traiterRep(int sa, char *req, int *taille){
 void testProtoSrv(int sa){
 	int N=0,i;
 	char req[MAX_BUFF];
-	//memset(req,MAX_BUFF,0);
-	//sprintf(req,"%i",100);
-	//traiterRep(sa,req,&N);
+	memset(req,MAX_BUFF,0);
+	
+	//requête connexion : "envoie des infos joueur au serveur"
+	sprintf(req,"%i",100);sprintf(req,"%s",joueur.pseudo);
+	printf("[thread Client] -> ptotoServ req : %s\n",req);
+	traiterRep(sa,req,&N);
 	
 }
 
@@ -199,9 +208,11 @@ printf("************************************************************************
  *
  * \version 1.0
 ************************************************************************** */
-void * client(void *args){
+void * client(void *arg){
+	int sa = *((int *) arg);
+	free(arg);
 	printf("[thread Client]\n");
-	
+	testProtoSrv(sa);
 	pthread_exit(0);
 }
 
@@ -284,7 +295,9 @@ int main (void){
 	selectionMode();
 
 	// Création du thread du client 
-	CHECK(pthread_create(&th_Client,NULL, client,NULL),"[client] echec création thread client"); //changer les paramètres
+	int * arg = malloc (sizeof(* arg));
+	*arg =sa;
+	CHECK(pthread_create(&th_Client,NULL, client,(void *)arg),"[client] echec création thread client"); //changer les paramètres
 	//Démarrage de la socket d'écoute serveur client
 	CHECK(pthread_create(&th_SP,NULL, servP,NULL),"[client] echec création thread Serveur Partie client"); //changer les paramètres
 	

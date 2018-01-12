@@ -3,6 +3,11 @@
 //tableau de joueur
 Joueur joueur[40];
 
+void req100(int sd, int taille){
+	char rep[MAX_BUFF];
+	sprintf(rep,"100:%i",taille);
+	CHECK(write(sd,rep,strlen(rep)+1),"A COMPLETER");
+}
 
 void dialogueClt(int sd, T_Tab tableau, int taille){
 	char FIN=1;
@@ -13,6 +18,11 @@ void dialogueClt(int sd, T_Tab tableau, int taille){
 		CHECK(read(sd,rep,MAX_BUFF),"[SERVEUR] echec lecture requête");
 		sscanf(rep,"%i",&repId);
 		switch(repId){
+			case 100:
+			  printf ( "[SERVEUR] req100 \n" );
+			  req100(sd,taille); 
+			break;
+
 			case 0: printf ( "[SERVEUR] Fermeture appel \n" );
 			  FIN=!FIN;
 			break;
