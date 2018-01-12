@@ -1,10 +1,29 @@
 #include "stream.h"
+#include "stdbool.h"
 
 //Zone des variables
 Joueur joueur;
 
 
 
+
+/** ***********************************************************************
+ * \fn vider_buffer
+ * \file client.c
+ * \brief Vide le buffer
+ * \return 
+ * \param[out]
+ * \param[in]
+ * \author 
+ * 
+ * \date 12 Janvier 2018
+ *
+ * \version 1.0
+************************************************************************** */
+void vider_buffer(void) {
+	int c;
+	while((c=getchar()) != '\n' && c != EOF);
+}
 
 /** ***********************************************************************
  * \fn trimwhitespace
@@ -41,12 +60,12 @@ char *trimwhitespace(char *str)
 }
 
 /** ***********************************************************************
- * \fn 
+ * \fn dialogueClt
  * \file client.c
  * \brief 
  * \return 
- * \param[out]
- * \param[in] 
+ * \param[out] (...)
+ * \param[in] (...)
  * \author 
  * 
  * \date 30 Décembre 2017
@@ -59,12 +78,12 @@ void dialogueClt(int sa, char *req, int *taille){
 }
 
 /** ***********************************************************************
- * \fn 
+ * \fn selectionPseudo
  * \file client.c
- * \brief 
+ * \brief Demande au client d'entrer son pseudo et le sauvegarde dans un tableau
  * \return 
- * \param[out]
- * \param[in] 
+ * \param[out] (...)
+ * \param[in] (...)
  * \author 
  * 
  * \date 30 Décembre 2017
@@ -73,18 +92,18 @@ void dialogueClt(int sa, char *req, int *taille){
 ************************************************************************** */
 void selectionPseudo(){
 	char pseudo[10];
-	printf(">Veuillez selectionner un pseudo [9 charactères max]:\n");
+	printf("> Veuillez selectionner un pseudo [8 charactères max]: \n");
 	fgets(pseudo,9,stdin);
 	trimwhitespace(pseudo);
 	strncpy(joueur.pseudo,pseudo,9);
-	printf("bonjour  %s !\n", joueur.pseudo);
+	printf("\n Bonjour  %s ! \n", joueur.pseudo);
 	fflush(stdin);
 }
 
 /** ***********************************************************************
- * \fn 
+ * \fn selectionMode
  * \file client.c
- * \brief 
+ * \brief Demande au client de selectionner un mode et le sauvegarde dans un tableau
  * \return 
  * \param[out]
  * \param[in] 
@@ -95,21 +114,25 @@ void selectionPseudo(){
  * \version 1.0
 ************************************************************************** */
 void selectionMode(){
-	int mode,flag;
-	printf("\n>Veuillez selectionner un mode de jeu :\n");
-	printf("	> Joueur : (Tapez 1)\n");
-	printf("	> Spectateur : (Tapez 2)\n");
-	printf("\n\nVotre choix :\n"); scanf("%i", &mode);
-	while(!flag){	
-	if(mode > 2 || mode < 1){
-		printf("\nChoix incorrecte, veuillez choisir un entrer un nombre entre 1 et 2\n"); scanf("%d", &mode);
-		flag=0;
+	int mode;
+	bool flag = true;
+	printf("\n >Veuillez selectionner un mode de jeu : \n");
+	printf("	> Joueur : (Tapez 1) \n");
+	printf("	> Spectateur : (Tapez 2) \n");
+	printf("\n\n Votre choix : \n");
+	scanf("%i", &mode);
+	if(mode != 2 && mode != 1){
+		vider_buffer();
+		flag = false;
+		printf("\n\t Choix incorrect !!! Veuillez entrer un nombre entre 1 et 2 ! \n\n");
 	}
-	else flag=1;
+	if(flag){
+		printf("\t\t Mode selectionné : %d \n\n",mode);
+		joueur.mode = mode;
+		//fflush(stdout);
+	} else {
+		selectionMode();
 	}
-	printf("mode selectionné : %d\n",mode);
-	joueur.mode = mode;
-	//fflush(stdout);
 }
 
 /** ***********************************************************************
