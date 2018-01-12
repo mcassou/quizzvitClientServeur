@@ -1,0 +1,58 @@
+\hypertarget{stream_8h}{}\section{stream.\+h File Reference}
+\label{stream_8h}\index{stream.\+h@{stream.\+h}}
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\+h$>$}\\*
+{\ttfamily \#include $<$ctype.\+h$>$}\\*
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_joueur}{Joueur}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stream_8h_ad3fe337408f16c132c895f2b59326410}{C\+H\+E\+C\+K}(sts,  msg)~; if ((sts) == -\/1) \{ perror (msg) ; exit (-\/1);\}
+\item 
+\#define \hyperlink{stream_8h_a63cc51955a32e949e602d322d28762ec}{P\+O\+R\+T\+\_\+\+S\+R\+V}~5000
+\item 
+\#define \hyperlink{stream_8h_aa99b2405a82666086efae3ef4efb8718}{I\+P\+\_\+\+S\+R\+V}~\char`\"{}127.\+0.\+0.\+1\char`\"{}
+\item 
+\#define \hyperlink{stream_8h_a4b70916bdf28ed7afd94e4fb98230a90}{M\+A\+X\+\_\+\+B\+U\+F\+F}~1024
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef char \hyperlink{stream_8h_a85779f8887e427e5e8b785f8b4291bdf}{T\+\_\+\+Tab}\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{stream_8h_a4b70916bdf28ed7afd94e4fb98230a90}{M\+A\+X\+\_\+\+B\+U\+F\+F}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stream_8h_ad3fe337408f16c132c895f2b59326410}{}\index{stream.\+h@{stream.\+h}!C\+H\+E\+C\+K@{C\+H\+E\+C\+K}}
+\index{C\+H\+E\+C\+K@{C\+H\+E\+C\+K}!stream.\+h@{stream.\+h}}
+\subsubsection[{C\+H\+E\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+H\+E\+C\+K(
+\begin{DoxyParamCaption}
+\item[{}]{sts, }
+\item[{}]{msg}
+\end{DoxyParamCaption}
+)~; if ((sts) == -\/1) \{ perror (msg) ; exit (-\/1);\}}\label{stream_8h_ad3fe337408f16c132c895f2b59326410}
+/brief /param sts \{\} /param msg \{\} \hypertarget{stream_8h_aa99b2405a82666086efae3ef4efb8718}{}\index{stream.\+h@{stream.\+h}!I\+P\+\_\+\+S\+R\+V@{I\+P\+\_\+\+S\+R\+V}}
+\index{I\+P\+\_\+\+S\+R\+V@{I\+P\+\_\+\+S\+R\+V}!stream.\+h@{stream.\+h}}
+\subsubsection[{I\+P\+\_\+\+S\+R\+V}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+P\+\_\+\+S\+R\+V~\char`\"{}127.\+0.\+0.\+1\char`\"{}}\label{stream_8h_aa99b2405a82666086efae3ef4efb8718}
+\hypertarget{stream_8h_a4b70916bdf28ed7afd94e4fb98230a90}{}\index{stream.\+h@{stream.\+h}!M\+A\+X\+\_\+\+B\+U\+F\+F@{M\+A\+X\+\_\+\+B\+U\+F\+F}}
+\index{M\+A\+X\+\_\+\+B\+U\+F\+F@{M\+A\+X\+\_\+\+B\+U\+F\+F}!stream.\+h@{stream.\+h}}
+\subsubsection[{M\+A\+X\+\_\+\+B\+U\+F\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+B\+U\+F\+F~1024}\label{stream_8h_a4b70916bdf28ed7afd94e4fb98230a90}
+\hypertarget{stream_8h_a63cc51955a32e949e602d322d28762ec}{}\index{stream.\+h@{stream.\+h}!P\+O\+R\+T\+\_\+\+S\+R\+V@{P\+O\+R\+T\+\_\+\+S\+R\+V}}
+\index{P\+O\+R\+T\+\_\+\+S\+R\+V@{P\+O\+R\+T\+\_\+\+S\+R\+V}!stream.\+h@{stream.\+h}}
+\subsubsection[{P\+O\+R\+T\+\_\+\+S\+R\+V}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+O\+R\+T\+\_\+\+S\+R\+V~5000}\label{stream_8h_a63cc51955a32e949e602d322d28762ec}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{stream_8h_a85779f8887e427e5e8b785f8b4291bdf}{}\index{stream.\+h@{stream.\+h}!T\+\_\+\+Tab@{T\+\_\+\+Tab}}
+\index{T\+\_\+\+Tab@{T\+\_\+\+Tab}!stream.\+h@{stream.\+h}}
+\subsubsection[{T\+\_\+\+Tab}]{\setlength{\rightskip}{0pt plus 5cm}typedef char T\+\_\+\+Tab\mbox{[}$\,$\mbox{]}\mbox{[}{\bf M\+A\+X\+\_\+\+B\+U\+F\+F}\mbox{]}}\label{stream_8h_a85779f8887e427e5e8b785f8b4291bdf}
