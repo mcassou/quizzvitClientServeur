@@ -2,14 +2,18 @@
 
 //tableau de joueur
 Joueur joueur[40];
+int i=0;
 
-void req100(int sd, int taille){
+void enregristrerJoueur(int sd, int mode, int se,char *pseudo, int taille){
+	printf("Joueur enregistré : %s /mode : %i /socket : %i\n",pseudo,mode,se);
+
 	char rep[MAX_BUFF];
-	sprintf(rep,"100:%i",taille);
+	sprintf(rep,"100 %i",taille);
 	CHECK(write(sd,rep,strlen(rep)+1),"A COMPLETER");
 }
 
 void dialogueClt(int sd, T_Tab tableau, int taille){
+	
 	char FIN=1;
 	int repId,index;
 	char rep[MAX_BUFF];
@@ -19,8 +23,9 @@ void dialogueClt(int sd, T_Tab tableau, int taille){
 		sscanf(rep,"%i",&repId);
 		switch(repId){
 			case 100:
-			  printf ( "[SERVEUR] req100 \n" );
-			  req100(sd,taille); 
+			  sscanf(rep,"%i: %i %i %s",&repId,&joueur[i].mode,&joueur[i].se,joueur[i].pseudo);
+			  printf("[Serveur] id Connexion : %d\n",i);
+			  enregristrerJoueur(sd,joueur[i].mode,joueur[i].se,joueur[i].pseudo,taille); 
 			break;
 
 			case 0: printf ( "[SERVEUR] Fermeture appel \n" );
@@ -28,16 +33,25 @@ void dialogueClt(int sd, T_Tab tableau, int taille){
 			break;
 	
 			default : printf("[SERVEUR] > Requète inconnu reçu\n");
-				FIN=!FIN;
+			  FIN=!FIN;
 			break;		
 		}
 	}
 }
 
 void derouter(int sig){
-	int status;
-	int pid=wait(&status);
-	printf("[SERVEUR - Derouter ]le processus de service [PID=%d], vient de se terminer avec le status %d\n",pid,status);
+	switch(sig){
+		case SIGCHLD :
+			i--;
+			int status;
+			int pid=wait(&status);
+			printf("[SERVEUR - Derouter] sig %i reçu : le processus de service [PID=%d], vient de se terminer avec le status %d\n",sig,pid,status);
+		break;
+
+		default : printf("[SERVEUR - Derouter] default case\n");
+			exit(-1);
+		break;
+	}
 }
 
 
@@ -100,9 +114,7 @@ int main (){
 	CHECK(sigemptyset(&newAct.sa_mask),"...............");
 	CHECK(sigaction(SIGCHLD,&newAct,NULL),"..............");
 
-/***************************************************************** Boucle reception serveur *******************************************************************/
-	
-	//TODO identifier requete => switch case exemple : Stockage info. 
+/***************************************************************** Boucle reception serveur *******************************************************************/ 
 	// boucle de réception
 	while ( 1 )
 		  { 
@@ -111,7 +123,7 @@ int main (){
 		    struct sockaddr_in ac;
 		    socklen_t taille = sizeof ( ac );
 		    CHECK( ( sd = accept ( se, ( struct sockaddr * ) &ac, &taille ) ), "[SERVEUR] Requete non acceptee par le serveur" );
-		   
+		    i++;
 		    //clonage processus
 		    int pid;
 		    CHECK(pid=fork(),"Fork failed");
@@ -119,7 +131,6 @@ int main (){
 				close(se);
 				//boucle de test
 				while(1){
-					system("clear");
 					dialogueClt(sd,quizz,sizeof(quizz)/MAX_BUFF);
 					close(sd); 
 					exit(0);

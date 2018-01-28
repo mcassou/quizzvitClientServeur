@@ -1,4 +1,5 @@
 #include "stream.h"
+#define PORT_SP 5001
 
 //Zone des variables
 Joueur joueur;
@@ -56,15 +57,15 @@ char *trimwhitespace(char *str)
 void traiterRep(int sa, char *req, int *taille){
 	int repId;
 	char rep[MAX_BUFF];
-	printf("[thread Client] -> traiterRep\n");
+	//printf("[thread Client] -> traiterRep\n");
 	CHECK(write(sa,req,strlen(req)+1),"[Client] Echec envoi requête");
 	CHECK(read(sa,rep,MAX_BUFF),"[Client] Echec lecutre réponse");
 	sscanf(rep,"%i",&repId);
 	switch ( repId )
 		      {
 		case 100 :
-			sscanf(rep,"%i:%i",&repId,taille ); 
-			printf("taille =%i\n",*taille);
+			sscanf(rep,"%i %i",&repId,taille ); 
+			printf("Joueur enregistré !\n");
 		break;
 
 		default : exit(0);
@@ -91,8 +92,8 @@ void testProtoSrv(int sa){
 	memset(req,MAX_BUFF,0);
 	
 	//requête connexion : "envoie des infos joueur au serveur"
-	sprintf(req,"%i",100);sprintf(req,"%s",joueur.pseudo);
-	printf("[thread Client] -> ptotoServ req : %s\n",req);
+	sprintf(req,"%i: %i %i %s",100,joueur.mode,joueur.se,joueur.pseudo);
+	//printf("[thread Client] -> ptotoServ req : %s\n",req);
 	traiterRep(sa,req,&N);
 	
 }
@@ -231,6 +232,27 @@ void * client(void *arg){
 ************************************************************************** */
 void * servP(void *args){
 	printf("[thread Serveur Partie]\n");
+	/* Socket d'écoute */
+	int se;
+	/* Socket de la connexion */
+	int sd;
+
+	int lenClt;
+	char buff[MAX_BUFF];
+
+	/* addr */
+	struct sockaddr_in svc;
+	struct sockaddr_in clt;
+	CHECK(se = socket(AF_INET, SOCK_STREAM, 0), "[SP] Probleme Creation de la Socket d'ecoute");
+	/***************************************** Adressage de la Socket se du SP************************************************/
+	svc.sin_family = AF_INET;
+	svc.sin_port =	htons(PORT_SP);
+	inet_aton(IP_SRV, &(svc.sin_addr));
+	memset(&svc.sin_zero, 0, 8);
+	
+	CHECK(bind(se, (struct sockaddr *)&svc, sizeof(svc)), "[SP] Probleme Addressage de la Socket d'ecoute");
+	/* Un serveur multiple doit indiquer le nombre de clients mis en attente de connexion par l'appel */
+	CHECK(listen(se,1), "[SP] Erreur listen");
 	while(1){
 	/*
 	for(i=1, i<=20, i++){
@@ -294,12 +316,14 @@ int main (void){
 	selectionPseudo();
 	selectionMode();
 
+	//Démarrage de la socket d'écoute serveur client
+	CHECK(pthread_create(&th_SP,NULL, servP,NULL),"[client] echec création thread Serveur Partie client"); //changer les paramètres
+
 	// Création du thread du client 
 	int * arg = malloc (sizeof(* arg));
 	*arg =sa;
 	CHECK(pthread_create(&th_Client,NULL, client,(void *)arg),"[client] echec création thread client"); //changer les paramètres
-	//Démarrage de la socket d'écoute serveur client
-	CHECK(pthread_create(&th_SP,NULL, servP,NULL),"[client] echec création thread Serveur Partie client"); //changer les paramètres
+	
 	
 	CHECK(pthread_join(th_SP,&res),"[client] echec fermeture th_sp");
 	CHECK(pthread_join(th_Client,&res),"[client] echec fermeture th_Client");
