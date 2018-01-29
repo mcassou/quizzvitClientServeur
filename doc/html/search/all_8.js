@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['t_5ftab',['T_Tab',['../stream_8h.html#a85779f8887e427e5e8b785f8b4291bdf',1,'stream.h']]],
-  ['traiterrep',['traiterRep',['../client_8c.html#ae5809e26c6f02e2d03c3f65d7a793761',1,'client.c']]],
-  ['trimwhitespace',['trimwhitespace',['../client_8c.html#a205c8acb2ef70f038f32e5fe361cc8d9',1,'client.c']]]
+  ['se',['se',['../struct_joueur.html#a0c38adef1c309a145b4179ce607df167',1,'Joueur']]],
+  ['selectionmode',['selectionMode',['../client_8c.html#a4e1bd27e19f5b643049e28c5a712b59e',1,'client.c']]],
+  ['selectionpseudo',['selectionPseudo',['../client_8c.html#a7f64abf4fb28f47a510f7f67b2e39d94',1,'client.c']]],
+  ['serveur_2ec',['serveur.c',['../serveur_8c.html',1,'']]],
+  ['servp',['servP',['../client_8c.html#a0809c89321b92d287f42b9f3ccdc3b14',1,'client.c']]],
+  ['stream_2eh',['stream.h',['../stream_8h.html',1,'']]]
 ];

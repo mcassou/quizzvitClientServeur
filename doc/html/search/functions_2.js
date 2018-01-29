@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../client_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;client.c'],['../serveur_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;serveur.c']]]
+  ['derouter',['derouter',['../serveur_8c.html#a7296d1eae70a9a99b5c67a7651f13959',1,'serveur.c']]],
+  ['dialogueclt',['dialogueClt',['../serveur_8c.html#a92766c5e10acf354320ac66490608237',1,'serveur.c']]]
 ];

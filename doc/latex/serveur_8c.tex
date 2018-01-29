@@ -1,19 +1,122 @@
 \hypertarget{serveur_8c}{}\section{serveur.\+c File Reference}
 \label{serveur_8c}\index{serveur.\+c@{serveur.\+c}}
+
+
+Fichier Serveur.  
+
+
 {\ttfamily \#include \char`\"{}stream.\+h\char`\"{}}\\*
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{serveur_8c_a19919ee83317fb08018f05ee3bb126d2}{enregristrer\+Joueur} (int sd, int mode, int se, char $\ast$pseudo, int taille)
+\begin{DoxyCompactList}\small\item\em enregistre le joueur et envoi un acknwoledge au client. \end{DoxyCompactList}\item 
+void \hyperlink{serveur_8c_a92766c5e10acf354320ac66490608237}{dialogue\+Clt} (int sd, \hyperlink{stream_8h_a85779f8887e427e5e8b785f8b4291bdf}{T\+\_\+\+Tab} tableau, int taille)
+\begin{DoxyCompactList}\small\item\em traitement des requête par identification \end{DoxyCompactList}\item 
+void \hyperlink{serveur_8c_a7296d1eae70a9a99b5c67a7651f13959}{derouter} (int sig)
+\begin{DoxyCompactList}\small\item\em Gestionnaire des signaux d\textquotesingle{}interruptions. \end{DoxyCompactList}\item 
 int \hyperlink{serveur_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{struct_joueur}{Joueur} \hyperlink{serveur_8c_a0081af0ee8d1106c82afbda6be17cf2a}{joueur} \mbox{[}40\mbox{]}
+\item 
+int \hyperlink{serveur_8c_acb559820d9ca11295b4500f179ef6392}{i} =0
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Fichier Serveur. 
+
+
+
+
+
+\begin{DoxyDate}{Date}
+30 Décembre 2017
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
 \subsection{Function Documentation}
+\hypertarget{serveur_8c_a7296d1eae70a9a99b5c67a7651f13959}{}\index{serveur.\+c@{serveur.\+c}!derouter@{derouter}}
+\index{derouter@{derouter}!serveur.\+c@{serveur.\+c}}
+\subsubsection[{derouter}]{\setlength{\rightskip}{0pt plus 5cm}void derouter (
+\begin{DoxyParamCaption}
+\item[{int}]{sig}
+\end{DoxyParamCaption}
+)}\label{serveur_8c_a7296d1eae70a9a99b5c67a7651f13959}
+
+
+Gestionnaire des signaux d\textquotesingle{}interruptions. 
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\hypertarget{serveur_8c_a92766c5e10acf354320ac66490608237}{}\index{serveur.\+c@{serveur.\+c}!dialogue\+Clt@{dialogue\+Clt}}
+\index{dialogue\+Clt@{dialogue\+Clt}!serveur.\+c@{serveur.\+c}}
+\subsubsection[{dialogue\+Clt}]{\setlength{\rightskip}{0pt plus 5cm}void dialogue\+Clt (
+\begin{DoxyParamCaption}
+\item[{int}]{sd, }
+\item[{{\bf T\+\_\+\+Tab}}]{tableau, }
+\item[{int}]{taille}
+\end{DoxyParamCaption}
+)}\label{serveur_8c_a92766c5e10acf354320ac66490608237}
+
+
+traitement des requête par identification 
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\hypertarget{serveur_8c_a19919ee83317fb08018f05ee3bb126d2}{}\index{serveur.\+c@{serveur.\+c}!enregristrer\+Joueur@{enregristrer\+Joueur}}
+\index{enregristrer\+Joueur@{enregristrer\+Joueur}!serveur.\+c@{serveur.\+c}}
+\subsubsection[{enregristrer\+Joueur}]{\setlength{\rightskip}{0pt plus 5cm}void enregristrer\+Joueur (
+\begin{DoxyParamCaption}
+\item[{int}]{sd, }
+\item[{int}]{mode, }
+\item[{int}]{se, }
+\item[{char $\ast$}]{pseudo, }
+\item[{int}]{taille}
+\end{DoxyParamCaption}
+)}\label{serveur_8c_a19919ee83317fb08018f05ee3bb126d2}
+
+
+enregistre le joueur et envoi un acknwoledge au client. 
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
 \hypertarget{serveur_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\index{serveur.\+c@{serveur.\+c}!main@{main}}
 \index{main@{main}!serveur.\+c@{serveur.\+c}}
 \subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
@@ -24,6 +127,9 @@ int \hyperlink{serveur_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 
 
 \subsection{Variable Documentation}
+\hypertarget{serveur_8c_acb559820d9ca11295b4500f179ef6392}{}\index{serveur.\+c@{serveur.\+c}!i@{i}}
+\index{i@{i}!serveur.\+c@{serveur.\+c}}
+\subsubsection[{i}]{\setlength{\rightskip}{0pt plus 5cm}int i =0}\label{serveur_8c_acb559820d9ca11295b4500f179ef6392}
 \hypertarget{serveur_8c_a0081af0ee8d1106c82afbda6be17cf2a}{}\index{serveur.\+c@{serveur.\+c}!joueur@{joueur}}
 \index{joueur@{joueur}!serveur.\+c@{serveur.\+c}}
 \subsubsection[{joueur}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Joueur} joueur\mbox{[}40\mbox{]}}\label{serveur_8c_a0081af0ee8d1106c82afbda6be17cf2a}

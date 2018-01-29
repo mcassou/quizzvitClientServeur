@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Quizz_vit: client.c File Reference</title>
+<title>My Project: client.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,10 +23,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quizz_vit
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">My Project
+   &#160;<span id="projectnumber">0.1</span>
    </div>
-   <div id="projectbrief">Projet développé dans le cadre du module MCS</div>
+   <div id="projectbrief">Quizz vit est projet de MCS (Middleware Client-Serveur) codé en C se présentant sous la forme d&#39;un quizz interactif opposant deux utilisateur</div>
   </td>
  </tr>
  </tbody>
@@ -83,30 +83,80 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">client.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Fichier client.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="stream_8h_source.html">stream.h</a>&quot;</code><br />
+<code>#include &quot;stdbool.h&quot;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a3f523dce1cba3d181d00fd5e5929ce6e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a3f523dce1cba3d181d00fd5e5929ce6e">PORT_SP</a>&#160;&#160;&#160;5001</td></tr>
+<tr class="separator:a3f523dce1cba3d181d00fd5e5929ce6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a183c5f911befa83432ff61674e326603"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a183c5f911befa83432ff61674e326603">vider_buffer</a> (void)</td></tr>
+<tr class="memdesc:a183c5f911befa83432ff61674e326603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vide le buffer.  <a href="#a183c5f911befa83432ff61674e326603">More...</a><br /></td></tr>
+<tr class="separator:a183c5f911befa83432ff61674e326603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a205c8acb2ef70f038f32e5fe361cc8d9"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a205c8acb2ef70f038f32e5fe361cc8d9">trimwhitespace</a> (char *str)</td></tr>
 <tr class="separator:a205c8acb2ef70f038f32e5fe361cc8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5809e26c6f02e2d03c3f65d7a793761"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#ae5809e26c6f02e2d03c3f65d7a793761">traiterRep</a> (int sa, char *req, int *taille)</td></tr>
 <tr class="separator:ae5809e26c6f02e2d03c3f65d7a793761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ece7449b6d1558a55a5d936114c0bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a51ece7449b6d1558a55a5d936114c0bf">testProtoSrv</a> (int sa)</td></tr>
+<tr class="memdesc:a51ece7449b6d1558a55a5d936114c0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">déroulé du ptotocole applicatif entre un client et le serveur d'enregistrement  <a href="#a51ece7449b6d1558a55a5d936114c0bf">More...</a><br /></td></tr>
+<tr class="separator:a51ece7449b6d1558a55a5d936114c0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f64abf4fb28f47a510f7f67b2e39d94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a7f64abf4fb28f47a510f7f67b2e39d94">selectionPseudo</a> ()</td></tr>
+<tr class="memdesc:a7f64abf4fb28f47a510f7f67b2e39d94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demande au client d'entrer son pseudo et le sauvegarde dans un tableau.  <a href="#a7f64abf4fb28f47a510f7f67b2e39d94">More...</a><br /></td></tr>
 <tr class="separator:a7f64abf4fb28f47a510f7f67b2e39d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e1bd27e19f5b643049e28c5a712b59e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a4e1bd27e19f5b643049e28c5a712b59e">selectionMode</a> ()</td></tr>
+<tr class="memdesc:a4e1bd27e19f5b643049e28c5a712b59e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demande au client de selectionner un mode et le sauvegarde dans un tableau.  <a href="#a4e1bd27e19f5b643049e28c5a712b59e">More...</a><br /></td></tr>
 <tr class="separator:a4e1bd27e19f5b643049e28c5a712b59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a854b65a902144a65b2c094377244ed50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a854b65a902144a65b2c094377244ed50">entrerJeuClient</a> ()</td></tr>
 <tr class="separator:a854b65a902144a65b2c094377244ed50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a961ba72ff7ee4fa55ef906d135abd63a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a961ba72ff7ee4fa55ef906d135abd63a">acceuil</a> ()</td></tr>
+<tr class="memdesc:a961ba72ff7ee4fa55ef906d135abd63a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de mise en forme du prompt.  <a href="#a961ba72ff7ee4fa55ef906d135abd63a">More...</a><br /></td></tr>
 <tr class="separator:a961ba72ff7ee4fa55ef906d135abd63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67e80309cfaeff5ac22b82079bb5ddc6"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a67e80309cfaeff5ac22b82079bb5ddc6">client</a> (void *arg)</td></tr>
+<tr class="memdesc:a67e80309cfaeff5ac22b82079bb5ddc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread Client gérant les échanges avec le serveur d'enregistrement et le serveur partie.  <a href="#a67e80309cfaeff5ac22b82079bb5ddc6">More...</a><br /></td></tr>
+<tr class="separator:a67e80309cfaeff5ac22b82079bb5ddc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0809c89321b92d287f42b9f3ccdc3b14"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a0809c89321b92d287f42b9f3ccdc3b14">servP</a> (void *args)</td></tr>
+<tr class="memdesc:a0809c89321b92d287f42b9f3ccdc3b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread SP gérant la partie serveur du client lors d'une partie.  <a href="#a0809c89321b92d287f42b9f3ccdc3b14">More...</a><br /></td></tr>
+<tr class="separator:a0809c89321b92d287f42b9f3ccdc3b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">démarrage des différents threads Client.  <a href="#a840291bc02cba5474a4cb46a9b9566fe">More...</a><br /></td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a01deea11b80ff3cd2f1df515988edf00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_joueur.html">Joueur</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a01deea11b80ff3cd2f1df515988edf00">joueur</a></td></tr>
+<tr class="separator:a01deea11b80ff3cd2f1df515988edf00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Fichier client. </p>
+<hr/>
+<dl class="section date"><dt>Date</dt><dd>30 Décembre 2017</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a3f523dce1cba3d181d00fd5e5929ce6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PORT_SP&#160;&#160;&#160;5001</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a961ba72ff7ee4fa55ef906d135abd63a"></a>
 <div class="memitem">
@@ -120,6 +170,42 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Fonction de mise en forme du prompt. </p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a67e80309cfaeff5ac22b82079bb5ddc6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * client </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>thread Client gérant les échanges avec le serveur d'enregistrement et le serveur partie. </p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -135,6 +221,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -152,6 +246,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>démarrage des différents threads Client. </p>
+<p>Main serveur.</p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a4e1bd27e19f5b643049e28c5a712b59e"></a>
@@ -167,6 +272,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Demande au client de selectionner un mode et le sauvegarde dans un tableau. </p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a7f64abf4fb28f47a510f7f67b2e39d94"></a>
@@ -181,6 +296,68 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Demande au client d'entrer son pseudo et le sauvegarde dans un tableau. </p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0809c89321b92d287f42b9f3ccdc3b14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * servP </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>thread SP gérant la partie serveur du client lors d'une partie. </p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a51ece7449b6d1558a55a5d936114c0bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void testProtoSrv </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sa</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>déroulé du ptotocole applicatif entre un client et le serveur d'enregistrement </p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -213,6 +390,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -226,6 +411,45 @@ Functions</h2></td></tr>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>str</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a183c5f911befa83432ff61674e326603"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vider_buffer </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vide le buffer. </p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a01deea11b80ff3cd2f1df515988edf00"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_joueur.html">Joueur</a> joueur</td>
         </tr>
       </table>
 </div><div class="memdoc">

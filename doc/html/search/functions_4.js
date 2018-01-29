@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['traiterrep',['traiterRep',['../client_8c.html#ae5809e26c6f02e2d03c3f65d7a793761',1,'client.c']]],
-  ['trimwhitespace',['trimwhitespace',['../client_8c.html#a205c8acb2ef70f038f32e5fe361cc8d9',1,'client.c']]]
+  ['main',['main',['../client_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;client.c'],['../serveur_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;serveur.c']]]
 ];

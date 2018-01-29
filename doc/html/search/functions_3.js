@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['selectionmode',['selectionMode',['../client_8c.html#a4e1bd27e19f5b643049e28c5a712b59e',1,'client.c']]],
-  ['selectionpseudo',['selectionPseudo',['../client_8c.html#a7f64abf4fb28f47a510f7f67b2e39d94',1,'client.c']]]
+  ['enregristrerjoueur',['enregristrerJoueur',['../serveur_8c.html#a19919ee83317fb08018f05ee3bb126d2',1,'serveur.c']]],
+  ['entrerjeuclient',['entrerJeuClient',['../client_8c.html#a854b65a902144a65b2c094377244ed50',1,'client.c']]]
 ];

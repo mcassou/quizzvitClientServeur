@@ -1,0 +1,119 @@
+.TH "client.c" 3 "Mon Jan 29 2018" "Version 0.1" "Quizz'Vit" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+client.c \- Vide le buffer\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'stream\&.h'\fP
+.br
+\fC#include 'stdbool\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPORT_SP\fP   5001"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBvider_buffer\fP (void)"
+.br
+.ti -1c
+.RI "char * \fBtrimwhitespace\fP (char *str)"
+.br
+.ti -1c
+.RI "void \fBtraiterRep\fP (int sa, char *req, int *taille)"
+.br
+.ti -1c
+.RI "void \fBtestProtoSrv\fP (int sa)"
+.br
+.ti -1c
+.RI "void \fBselectionPseudo\fP ()"
+.br
+.ti -1c
+.RI "void \fBselectionMode\fP ()"
+.br
+.ti -1c
+.RI "void \fBentrerJeuClient\fP ()"
+.br
+.ti -1c
+.RI "void \fBacceuil\fP ()"
+.br
+.ti -1c
+.RI "void * \fBclient\fP (void *arg)"
+.br
+.ti -1c
+.RI "void * \fBservP\fP (void *args)"
+.br
+.ti -1c
+.RI "int \fBmain\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBJoueur\fP \fBjoueur\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Vide le buffer\&. 
+
+démarrage des différents threads Client\&.
+.PP
+thread SP gérant la partie serveur du client lors d'une partie\&.
+.PP
+thread Client gérant les échanges avec le serveur d'enregistrement et le serveur partie\&.
+.PP
+Fonction de mise en forme du prompt\&.
+.PP
+Demande au client de selectionner un mode et le sauvegarde dans un tableau\&.
+.PP
+Demande au client d'entrer son pseudo et le sauvegarde dans un tableau\&.
+.PP
+déroulé du ptotocole applicatif entre un client et le serveur d'enregistrement
+.PP
+Supprime le retour chariot d'une chaine de charactère\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "entrerJeuClient ()"
+
+.PP
+ 
+.SS "main (void)"
+
+.PP
+ 
+.SS "selectionMode ()"
+
+.PP
+ 
+.SS "selectionPseudo ()"
+
+.PP
+ 
+.SS "vider_buffer (void)"
+
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Quizz'Vit from the source code\&.

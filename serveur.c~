@@ -14,7 +14,7 @@ Joueur joueur[40];
 int i=0;
 
 /** ***********************************************************************
- * \fn void enregristrerJoueur(int sd, int mode, int se,char *pseudo, int taille)
+ * \fn enregristrerJoueur(int sd, int mode, int se,char *pseudo, int taille)
  * 
  * \brief enregistre le joueur et envoi un acknwoledge au client.
  * \return 
@@ -36,7 +36,7 @@ void enregristrerJoueur(int sd, int mode, int se,char *pseudo, int taille){
 
 
 /** ***********************************************************************
- * \fn void dialogueClt(int sd, T_Tab tableau, int taille)
+ * \fn dialogueClt(int sd, T_Tab tableau, int taille)
  * 
  * \brief traitement des requête par identification
  * \return 
@@ -76,7 +76,7 @@ void dialogueClt(int sd, T_Tab tableau, int taille){
 }
 
 /** ***********************************************************************
- * \fn void derouter(int sig)
+ * \fn derouter(int sig)
  * 
  * \brief Gestionnaire des signaux d'interruptions
  * \return 

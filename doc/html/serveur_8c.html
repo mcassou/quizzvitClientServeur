@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Quizz_vit: serveur.c File Reference</title>
+<title>My Project: serveur.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,10 +23,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quizz_vit
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">My Project
+   &#160;<span id="projectnumber">0.1</span>
    </div>
-   <div id="projectbrief">Projet développé dans le cadre du module MCS</div>
+   <div id="projectbrief">Quizz vit est projet de MCS (Middleware Client-Serveur) codé en C se présentant sous la forme d&#39;un quizz interactif opposant deux utilisateur</div>
   </td>
  </tr>
  </tbody>
@@ -89,10 +89,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">serveur.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Fichier Serveur.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="stream_8h_source.html">stream.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a19919ee83317fb08018f05ee3bb126d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serveur_8c.html#a19919ee83317fb08018f05ee3bb126d2">enregristrerJoueur</a> (int sd, int mode, int se, char *pseudo, int taille)</td></tr>
+<tr class="memdesc:a19919ee83317fb08018f05ee3bb126d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">enregistre le joueur et envoi un acknwoledge au client.  <a href="#a19919ee83317fb08018f05ee3bb126d2">More...</a><br /></td></tr>
+<tr class="separator:a19919ee83317fb08018f05ee3bb126d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92766c5e10acf354320ac66490608237"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serveur_8c.html#a92766c5e10acf354320ac66490608237">dialogueClt</a> (int sd, <a class="el" href="stream_8h.html#a85779f8887e427e5e8b785f8b4291bdf">T_Tab</a> tableau, int taille)</td></tr>
+<tr class="memdesc:a92766c5e10acf354320ac66490608237"><td class="mdescLeft">&#160;</td><td class="mdescRight">traitement des requête par identification  <a href="#a92766c5e10acf354320ac66490608237">More...</a><br /></td></tr>
+<tr class="separator:a92766c5e10acf354320ac66490608237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7296d1eae70a9a99b5c67a7651f13959"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serveur_8c.html#a7296d1eae70a9a99b5c67a7651f13959">derouter</a> (int sig)</td></tr>
+<tr class="memdesc:a7296d1eae70a9a99b5c67a7651f13959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestionnaire des signaux d'interruptions.  <a href="#a7296d1eae70a9a99b5c67a7651f13959">More...</a><br /></td></tr>
+<tr class="separator:a7296d1eae70a9a99b5c67a7651f13959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serveur_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -100,8 +112,137 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a0081af0ee8d1106c82afbda6be17cf2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_joueur.html">Joueur</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serveur_8c.html#a0081af0ee8d1106c82afbda6be17cf2a">joueur</a> [40]</td></tr>
 <tr class="separator:a0081af0ee8d1106c82afbda6be17cf2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb559820d9ca11295b4500f179ef6392"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serveur_8c.html#acb559820d9ca11295b4500f179ef6392">i</a> =0</td></tr>
+<tr class="separator:acb559820d9ca11295b4500f179ef6392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Fichier Serveur. </p>
+<hr/>
+<dl class="section date"><dt>Date</dt><dd>30 Décembre 2017</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a7296d1eae70a9a99b5c67a7651f13959"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void derouter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sig</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gestionnaire des signaux d'interruptions. </p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a92766c5e10acf354320ac66490608237"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dialogueClt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="stream_8h.html#a85779f8887e427e5e8b785f8b4291bdf">T_Tab</a>&#160;</td>
+          <td class="paramname"><em>tableau</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>taille</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>traitement des requête par identification </p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a19919ee83317fb08018f05ee3bb126d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void enregristrerJoueur </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>se</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>pseudo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>taille</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>enregistre le joueur et envoi un acknwoledge au client. </p>
+<hr/>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -119,6 +260,18 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="acb559820d9ca11295b4500f179ef6392"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int i =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0081af0ee8d1106c82afbda6be17cf2a"></a>
 <div class="memitem">
 <div class="memproto">

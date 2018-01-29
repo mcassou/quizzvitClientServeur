@@ -1,23 +1,68 @@
 \hypertarget{client_8c}{}\section{client.\+c File Reference}
 \label{client_8c}\index{client.\+c@{client.\+c}}
+
+
+Fichier client.  
+
+
 {\ttfamily \#include \char`\"{}stream.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stdbool.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{client_8c_a3f523dce1cba3d181d00fd5e5929ce6e}{P\+O\+R\+T\+\_\+\+S\+P}~5001
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{client_8c_a183c5f911befa83432ff61674e326603}{vider\+\_\+buffer} (void)
+\begin{DoxyCompactList}\small\item\em Vide le buffer. \end{DoxyCompactList}\item 
 char $\ast$ \hyperlink{client_8c_a205c8acb2ef70f038f32e5fe361cc8d9}{trimwhitespace} (char $\ast$str)
 \item 
 void \hyperlink{client_8c_ae5809e26c6f02e2d03c3f65d7a793761}{traiter\+Rep} (int sa, char $\ast$req, int $\ast$taille)
 \item 
+void \hyperlink{client_8c_a51ece7449b6d1558a55a5d936114c0bf}{test\+Proto\+Srv} (int sa)
+\begin{DoxyCompactList}\small\item\em déroulé du ptotocole applicatif entre un client et le serveur d\textquotesingle{}enregistrement \end{DoxyCompactList}\item 
 void \hyperlink{client_8c_a7f64abf4fb28f47a510f7f67b2e39d94}{selection\+Pseudo} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Demande au client d\textquotesingle{}entrer son pseudo et le sauvegarde dans un tableau. \end{DoxyCompactList}\item 
 void \hyperlink{client_8c_a4e1bd27e19f5b643049e28c5a712b59e}{selection\+Mode} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Demande au client de selectionner un mode et le sauvegarde dans un tableau. \end{DoxyCompactList}\item 
 void \hyperlink{client_8c_a854b65a902144a65b2c094377244ed50}{entrer\+Jeu\+Client} ()
 \item 
 void \hyperlink{client_8c_a961ba72ff7ee4fa55ef906d135abd63a}{acceuil} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction de mise en forme du prompt. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{client_8c_a67e80309cfaeff5ac22b82079bb5ddc6}{client} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em thread Client gérant les échanges avec le serveur d\textquotesingle{}enregistrement et le serveur partie. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{client_8c_a0809c89321b92d287f42b9f3ccdc3b14}{serv\+P} (void $\ast$args)
+\begin{DoxyCompactList}\small\item\em thread S\+P gérant la partie serveur du client lors d\textquotesingle{}une partie. \end{DoxyCompactList}\item 
 int \hyperlink{client_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\begin{DoxyCompactList}\small\item\em démarrage des différents threads Client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_joueur}{Joueur} \hyperlink{client_8c_a01deea11b80ff3cd2f1df515988edf00}{joueur}
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fichier client. 
+
+
+
+
+
+\begin{DoxyDate}{Date}
+30 Décembre 2017
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{client_8c_a3f523dce1cba3d181d00fd5e5929ce6e}{}\index{client.\+c@{client.\+c}!P\+O\+R\+T\+\_\+\+S\+P@{P\+O\+R\+T\+\_\+\+S\+P}}
+\index{P\+O\+R\+T\+\_\+\+S\+P@{P\+O\+R\+T\+\_\+\+S\+P}!client.\+c@{client.\+c}}
+\subsubsection[{P\+O\+R\+T\+\_\+\+S\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+O\+R\+T\+\_\+\+S\+P~5001}\label{client_8c_a3f523dce1cba3d181d00fd5e5929ce6e}
 
 
 \subsection{Function Documentation}
@@ -28,6 +73,45 @@ int \hyperlink{client_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 {}
 \end{DoxyParamCaption}
 )}\label{client_8c_a961ba72ff7ee4fa55ef906d135abd63a}
+
+
+Fonction de mise en forme du prompt. 
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\hypertarget{client_8c_a67e80309cfaeff5ac22b82079bb5ddc6}{}\index{client.\+c@{client.\+c}!client@{client}}
+\index{client@{client}!client.\+c@{client.\+c}}
+\subsubsection[{client}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ client (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\label{client_8c_a67e80309cfaeff5ac22b82079bb5ddc6}
+
+
+thread Client gérant les échanges avec le serveur d\textquotesingle{}enregistrement et le serveur partie. 
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
 \hypertarget{client_8c_a854b65a902144a65b2c094377244ed50}{}\index{client.\+c@{client.\+c}!entrer\+Jeu\+Client@{entrer\+Jeu\+Client}}
 \index{entrer\+Jeu\+Client@{entrer\+Jeu\+Client}!client.\+c@{client.\+c}}
 \subsubsection[{entrer\+Jeu\+Client}]{\setlength{\rightskip}{0pt plus 5cm}void entrer\+Jeu\+Client (
@@ -35,6 +119,18 @@ int \hyperlink{client_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 {}
 \end{DoxyParamCaption}
 )}\label{client_8c_a854b65a902144a65b2c094377244ed50}
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
 \hypertarget{client_8c_a840291bc02cba5474a4cb46a9b9566fe}{}\index{client.\+c@{client.\+c}!main@{main}}
 \index{main@{main}!client.\+c@{client.\+c}}
 \subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
@@ -42,6 +138,24 @@ int \hyperlink{client_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 \item[{void}]{}
 \end{DoxyParamCaption}
 )}\label{client_8c_a840291bc02cba5474a4cb46a9b9566fe}
+
+
+démarrage des différents threads Client. 
+
+Main serveur.
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
 \hypertarget{client_8c_a4e1bd27e19f5b643049e28c5a712b59e}{}\index{client.\+c@{client.\+c}!selection\+Mode@{selection\+Mode}}
 \index{selection\+Mode@{selection\+Mode}!client.\+c@{client.\+c}}
 \subsubsection[{selection\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}void selection\+Mode (
@@ -49,6 +163,22 @@ int \hyperlink{client_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 {}
 \end{DoxyParamCaption}
 )}\label{client_8c_a4e1bd27e19f5b643049e28c5a712b59e}
+
+
+Demande au client de selectionner un mode et le sauvegarde dans un tableau. 
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
 \hypertarget{client_8c_a7f64abf4fb28f47a510f7f67b2e39d94}{}\index{client.\+c@{client.\+c}!selection\+Pseudo@{selection\+Pseudo}}
 \index{selection\+Pseudo@{selection\+Pseudo}!client.\+c@{client.\+c}}
 \subsubsection[{selection\+Pseudo}]{\setlength{\rightskip}{0pt plus 5cm}void selection\+Pseudo (
@@ -56,6 +186,68 @@ int \hyperlink{client_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 {}
 \end{DoxyParamCaption}
 )}\label{client_8c_a7f64abf4fb28f47a510f7f67b2e39d94}
+
+
+Demande au client d\textquotesingle{}entrer son pseudo et le sauvegarde dans un tableau. 
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\hypertarget{client_8c_a0809c89321b92d287f42b9f3ccdc3b14}{}\index{client.\+c@{client.\+c}!serv\+P@{serv\+P}}
+\index{serv\+P@{serv\+P}!client.\+c@{client.\+c}}
+\subsubsection[{serv\+P}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ serv\+P (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{client_8c_a0809c89321b92d287f42b9f3ccdc3b14}
+
+
+thread S\+P gérant la partie serveur du client lors d\textquotesingle{}une partie. 
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\hypertarget{client_8c_a51ece7449b6d1558a55a5d936114c0bf}{}\index{client.\+c@{client.\+c}!test\+Proto\+Srv@{test\+Proto\+Srv}}
+\index{test\+Proto\+Srv@{test\+Proto\+Srv}!client.\+c@{client.\+c}}
+\subsubsection[{test\+Proto\+Srv}]{\setlength{\rightskip}{0pt plus 5cm}void test\+Proto\+Srv (
+\begin{DoxyParamCaption}
+\item[{int}]{sa}
+\end{DoxyParamCaption}
+)}\label{client_8c_a51ece7449b6d1558a55a5d936114c0bf}
+
+
+déroulé du ptotocole applicatif entre un client et le serveur d\textquotesingle{}enregistrement 
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
 \hypertarget{client_8c_ae5809e26c6f02e2d03c3f65d7a793761}{}\index{client.\+c@{client.\+c}!traiter\+Rep@{traiter\+Rep}}
 \index{traiter\+Rep@{traiter\+Rep}!client.\+c@{client.\+c}}
 \subsubsection[{traiter\+Rep}]{\setlength{\rightskip}{0pt plus 5cm}void traiter\+Rep (
@@ -65,6 +257,18 @@ int \hyperlink{client_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 \item[{int $\ast$}]{taille}
 \end{DoxyParamCaption}
 )}\label{client_8c_ae5809e26c6f02e2d03c3f65d7a793761}
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
 \hypertarget{client_8c_a205c8acb2ef70f038f32e5fe361cc8d9}{}\index{client.\+c@{client.\+c}!trimwhitespace@{trimwhitespace}}
 \index{trimwhitespace@{trimwhitespace}!client.\+c@{client.\+c}}
 \subsubsection[{trimwhitespace}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ trimwhitespace (
@@ -72,3 +276,32 @@ int \hyperlink{client_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 \item[{char $\ast$}]{str}
 \end{DoxyParamCaption}
 )}\label{client_8c_a205c8acb2ef70f038f32e5fe361cc8d9}
+\hypertarget{client_8c_a183c5f911befa83432ff61674e326603}{}\index{client.\+c@{client.\+c}!vider\+\_\+buffer@{vider\+\_\+buffer}}
+\index{vider\+\_\+buffer@{vider\+\_\+buffer}!client.\+c@{client.\+c}}
+\subsubsection[{vider\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}void vider\+\_\+buffer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{client_8c_a183c5f911befa83432ff61674e326603}
+
+
+Vide le buffer. 
+
+
+
+
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\hypertarget{client_8c_a01deea11b80ff3cd2f1df515988edf00}{}\index{client.\+c@{client.\+c}!joueur@{joueur}}
+\index{joueur@{joueur}!client.\+c@{client.\+c}}
+\subsubsection[{joueur}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Joueur} joueur}\label{client_8c_a01deea11b80ff3cd2f1df515988edf00}

@@ -1,0 +1,60 @@
+.TH "serveur.c" 3 "Mon Jan 29 2018" "Version 0.1" "Quizz'Vit" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+serveur.c \- enregistre le joueur et envoi un acknwoledge au client\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'stream\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBenregristrerJoueur\fP (int sd, int mode, int se, char *pseudo, int taille)"
+.br
+.ti -1c
+.RI "void \fBdialogueClt\fP (int sd, T_Tab tableau, int taille)"
+.br
+.ti -1c
+.RI "void \fBderouter\fP (int sig)"
+.br
+.ti -1c
+.RI "int \fBmain\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBJoueur\fP \fBjoueur\fP [40]"
+.br
+.ti -1c
+.RI "int \fBi\fP =0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+enregistre le joueur et envoi un acknwoledge au client\&. 
+
+Main serveur\&.
+.PP
+Gestionnaire des signaux d'interruptions\&.
+.PP
+traitement des requête par identification
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Quizz'Vit from the source code\&.

@@ -72,10 +72,11 @@ char *trimwhitespace(char *str)
 
 /** ***********************************************************************
  * \fn void traiterRep(int sa, char *req, int *taille)
+ * \file client.c
  * \brief 
  * \return 
- * \param
- * \param
+ * \param[out] (...)
+ * \param[in] (...)
  * \author Hugo
  * 
  * \date 30 Décembre 2017
@@ -103,10 +104,11 @@ void traiterRep(int sa, char *req, int *taille){
 
 /** ***********************************************************************
  * \fn void testProtoSrv(int sa) 
+ * \file client.c
  * \brief déroulé du ptotocole applicatif entre un client et le serveur d'enregistrement
  * \return void
- * \param
- * \param 
+ * \param[out]
+ * \param[in] 
  * \author Hugo
  * 
  * \date 30 Décembre 2017
@@ -129,10 +131,11 @@ void testProtoSrv(int sa){
 
 /** ***********************************************************************
  * \fn void selectionPseudo()
+ * \file client.c
  * \brief Demande au client d'entrer son pseudo et le sauvegarde dans un tableau
  * \return 
- * \param
- * \param
+ * \param[out] (...)
+ * \param[in] (...)
  * \author Hugo
  * 
  * \date 30 Décembre 2017
@@ -151,10 +154,11 @@ void selectionPseudo(){
 
 /** ***********************************************************************
  * \fn void selectionMode()
+ * \file client.c
  * \brief Demande au client de selectionner un mode et le sauvegarde dans un tableau
  * \return 
- * \param
- * \param
+ * \param[out]
+ * \param[in] 
  * \author 
  * 
  * \date 30 Décembre 2017
@@ -185,10 +189,11 @@ void selectionMode(){
 
 /** ***********************************************************************
  * \fn void entrerJeuClient()
+ * \file client.c
  * \brief 
  * \return 
- * \param
- * \param 
+ * \param[out]
+ * \param[in] 
  * \author Hugo
  * 
  * \date 30 Décembre 2017
@@ -204,10 +209,11 @@ void entrerJeuClient(){
 
 /** ***********************************************************************
  * \fn void acceuil()
+ * \file client.c
  * \brief Fonction de mise en forme du prompt
  * \return 
- * \param
- * \param
+ * \param[out]
+ * \param[in] 
  * \author Hugo
  * 
  * \date 30 Décembre 2017
@@ -225,10 +231,11 @@ printf("************************************************************************
 
 /** ***********************************************************************
  * \fn void * client(void *arg)
+ * \file client.c
  * \brief thread Client gérant les échanges avec le serveur d'enregistrement et le serveur partie.
  * \return 
- * \param
- * \param 
+ * \param[out]
+ * \param[in] 
  * \author Hugo
  * 
  * \date 12 Janvier 2018
@@ -245,10 +252,11 @@ void * client(void *arg){
 
 /** ***********************************************************************
  * \fn void* servP(void *args)
+ * \file client.c
  * \brief thread SP gérant la partie serveur du client lors d'une partie.
  * \return 
- * \param
- * \param
+ * \param[out]
+ * \param[in] 
  * \author Hugo
  * 
  * \date 12 Janvier 2018
@@ -297,11 +305,12 @@ void * servP(void *args){
 }
 
 /** ***********************************************************************
- * \fn int main (void)
+ * \fn main
+ * \file client.c
  * \brief démarrage des différents threads Client.
  * \return 
- * \param
- * \param 
+ * \param[out]
+ * \param[in] 
  * \author 
  * 
  * \date 30 Décembre 2017

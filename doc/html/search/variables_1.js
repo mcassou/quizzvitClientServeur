@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mode',['mode',['../struct_joueur.html#a1ea5d0cb93f22f7d0fdf804bd68c3326',1,'Joueur']]]
+  ['joueur',['joueur',['../client_8c.html#a01deea11b80ff3cd2f1df515988edf00',1,'joueur():&#160;client.c'],['../serveur_8c.html#a0081af0ee8d1106c82afbda6be17cf2a',1,'joueur():&#160;serveur.c']]]
 ];

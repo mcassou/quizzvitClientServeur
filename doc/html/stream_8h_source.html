@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Quizz_vit: stream.h Source File</title>
+<title>My Project: stream.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,10 +23,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Quizz_vit
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">My Project
+   &#160;<span id="projectnumber">0.1</span>
    </div>
-   <div id="projectbrief">Projet développé dans le cadre du module MCS</div>
+   <div id="projectbrief">Quizz vit est projet de MCS (Middleware Client-Serveur) codé en C se présentant sous la forme d&#39;un quizz interactif opposant deux utilisateur</div>
   </td>
  </tr>
  </tbody>
@@ -97,27 +97,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;arpa/inet.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="stream_8h.html#ad3fe337408f16c132c895f2b59326410">   18</a></span>&#160;<span class="preprocessor">#define CHECK(sts, msg); if ((sts) == -1) { perror (msg) ; exit (-1);}</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="stream_8h.html#a63cc51955a32e949e602d322d28762ec">   20</a></span>&#160;<span class="preprocessor">#define PORT_SRV 5000</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="stream_8h.html#aa99b2405a82666086efae3ef4efb8718">   21</a></span>&#160;<span class="preprocessor">#define IP_SRV &quot;127.0.0.1&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;sys/wait.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;signal.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;netdb.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="stream_8h.html#ad3fe337408f16c132c895f2b59326410">   21</a></span>&#160;<span class="preprocessor">#define CHECK(sts, msg); if ((sts) == -1) { perror (msg) ; exit (-1);}</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="stream_8h.html#a4b70916bdf28ed7afd94e4fb98230a90">   23</a></span>&#160;<span class="preprocessor">#define MAX_BUFF 1024</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="stream_8h.html#a85779f8887e427e5e8b785f8b4291bdf">   24</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">char</span> <a class="code" href="stream_8h.html#a85779f8887e427e5e8b785f8b4291bdf">T_Tab</a>[][<a class="code" href="stream_8h.html#a4b70916bdf28ed7afd94e4fb98230a90">MAX_BUFF</a>];</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="stream_8h.html#a63cc51955a32e949e602d322d28762ec">   23</a></span>&#160;<span class="preprocessor">#define PORT_SRV 5000</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="stream_8h.html#aa99b2405a82666086efae3ef4efb8718">   24</a></span>&#160;<span class="preprocessor">#define IP_SRV &quot;127.0.0.1&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="struct_joueur.html">   27</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="struct_joueur.html#ac8e9179672836cd220547853402bf178">   29</a></span>&#160;    <span class="keywordtype">char</span> pseudo[10];</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="struct_joueur.html#a1ea5d0cb93f22f7d0fdf804bd68c3326">   30</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_joueur.html#a1ea5d0cb93f22f7d0fdf804bd68c3326">mode</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="struct_joueur.html#a0c38adef1c309a145b4179ce607df167">   31</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_joueur.html#a0c38adef1c309a145b4179ce607df167">se</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <a class="code" href="struct_joueur.html">Joueur</a>;</div>
-<div class="ttc" id="struct_joueur_html"><div class="ttname"><a href="struct_joueur.html">Joueur</a></div><div class="ttdef"><b>Definition:</b> stream.h:27</div></div>
-<div class="ttc" id="stream_8h_html_a85779f8887e427e5e8b785f8b4291bdf"><div class="ttname"><a href="stream_8h.html#a85779f8887e427e5e8b785f8b4291bdf">T_Tab</a></div><div class="ttdeci">char T_Tab[][MAX_BUFF]</div><div class="ttdef"><b>Definition:</b> stream.h:24</div></div>
-<div class="ttc" id="struct_joueur_html_a1ea5d0cb93f22f7d0fdf804bd68c3326"><div class="ttname"><a href="struct_joueur.html#a1ea5d0cb93f22f7d0fdf804bd68c3326">Joueur::mode</a></div><div class="ttdeci">int mode</div><div class="ttdef"><b>Definition:</b> stream.h:30</div></div>
-<div class="ttc" id="struct_joueur_html_a0c38adef1c309a145b4179ce607df167"><div class="ttname"><a href="struct_joueur.html#a0c38adef1c309a145b4179ce607df167">Joueur::se</a></div><div class="ttdeci">int se</div><div class="ttdef"><b>Definition:</b> stream.h:31</div></div>
-<div class="ttc" id="stream_8h_html_a4b70916bdf28ed7afd94e4fb98230a90"><div class="ttname"><a href="stream_8h.html#a4b70916bdf28ed7afd94e4fb98230a90">MAX_BUFF</a></div><div class="ttdeci">#define MAX_BUFF</div><div class="ttdef"><b>Definition:</b> stream.h:23</div></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="stream_8h.html#a4b70916bdf28ed7afd94e4fb98230a90">   26</a></span>&#160;<span class="preprocessor">#define MAX_BUFF 1024</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="stream_8h.html#a85779f8887e427e5e8b785f8b4291bdf">   28</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">char</span> <a class="code" href="stream_8h.html#a85779f8887e427e5e8b785f8b4291bdf">T_Tab</a>[][<a class="code" href="stream_8h.html#a4b70916bdf28ed7afd94e4fb98230a90">MAX_BUFF</a>];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="struct_joueur.html">   31</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="struct_joueur.html#ac8e9179672836cd220547853402bf178">   33</a></span>&#160;    <span class="keywordtype">char</span> pseudo[10];</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="struct_joueur.html#a1ea5d0cb93f22f7d0fdf804bd68c3326">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_joueur.html#a1ea5d0cb93f22f7d0fdf804bd68c3326">mode</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="struct_joueur.html#a0c38adef1c309a145b4179ce607df167">   35</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_joueur.html#a0c38adef1c309a145b4179ce607df167">se</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <a class="code" href="struct_joueur.html">Joueur</a>;</div>
+<div class="ttc" id="struct_joueur_html"><div class="ttname"><a href="struct_joueur.html">Joueur</a></div><div class="ttdef"><b>Definition:</b> stream.h:31</div></div>
+<div class="ttc" id="stream_8h_html_a85779f8887e427e5e8b785f8b4291bdf"><div class="ttname"><a href="stream_8h.html#a85779f8887e427e5e8b785f8b4291bdf">T_Tab</a></div><div class="ttdeci">char T_Tab[][MAX_BUFF]</div><div class="ttdef"><b>Definition:</b> stream.h:28</div></div>
+<div class="ttc" id="struct_joueur_html_a1ea5d0cb93f22f7d0fdf804bd68c3326"><div class="ttname"><a href="struct_joueur.html#a1ea5d0cb93f22f7d0fdf804bd68c3326">Joueur::mode</a></div><div class="ttdeci">int mode</div><div class="ttdef"><b>Definition:</b> stream.h:34</div></div>
+<div class="ttc" id="struct_joueur_html_a0c38adef1c309a145b4179ce607df167"><div class="ttname"><a href="struct_joueur.html#a0c38adef1c309a145b4179ce607df167">Joueur::se</a></div><div class="ttdeci">int se</div><div class="ttdef"><b>Definition:</b> stream.h:35</div></div>
+<div class="ttc" id="stream_8h_html_a4b70916bdf28ed7afd94e4fb98230a90"><div class="ttname"><a href="stream_8h.html#a4b70916bdf28ed7afd94e4fb98230a90">MAX_BUFF</a></div><div class="ttdeci">#define MAX_BUFF</div><div class="ttdef"><b>Definition:</b> stream.h:26</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

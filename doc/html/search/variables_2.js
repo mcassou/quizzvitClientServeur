@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pseudo',['pseudo',['../struct_joueur.html#ac8e9179672836cd220547853402bf178',1,'Joueur']]]
+  ['mode',['mode',['../struct_joueur.html#a1ea5d0cb93f22f7d0fdf804bd68c3326',1,'Joueur']]]
 ];

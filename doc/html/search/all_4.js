@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['joueur',['Joueur',['../struct_joueur.html',1,'Joueur'],['../serveur_8c.html#a0081af0ee8d1106c82afbda6be17cf2a',1,'joueur():&#160;serveur.c']]]
+  ['i',['i',['../serveur_8c.html#acb559820d9ca11295b4500f179ef6392',1,'serveur.c']]],
+  ['ip_5fsrv',['IP_SRV',['../stream_8h.html#aa99b2405a82666086efae3ef4efb8718',1,'stream.h']]]
 ];
